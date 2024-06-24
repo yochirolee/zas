@@ -6,6 +6,15 @@ import {
 } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -25,10 +34,14 @@ export default async function CardWrapper() {
     <>
       {/* NOTE: comment in this code when you get to this point in the course */}
 
-      <Card title="Collected" value={totalPaidInvoices} type="collected" />
-      <Card title="Pending" value={totalPendingInvoices} type="pending" />
-      <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
-      <Card
+      <CardStat title="Collected" value={totalPaidInvoices} type="collected" />
+      <CardStat title="Pending" value={totalPendingInvoices} type="pending" />
+      <CardStat
+        title="Total Invoices"
+        value={numberOfInvoices}
+        type="invoices"
+      />
+      <CardStat
         title="Total Customers"
         value={numberOfCustomers}
         type="customers"
@@ -37,7 +50,7 @@ export default async function CardWrapper() {
   );
 }
 
-export function Card({
+/* export function Card({
   title,
   value,
   type,
@@ -62,4 +75,33 @@ export function Card({
       </p>
     </div>
   );
+} */
+
+export function CardStat({
+  title,
+  value,
+  type,
+}: {
+  title: string;
+  value: number | string;
+  type: 'invoices' | 'customers' | 'pending' | 'collected';
+}) {
+  const Icon = iconMap[type];
+  return (
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+        <Icon className="text-muted-foreground h-6 w-6" />
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-bold">{value}</div>
+        <p className="text-muted-foreground text-xs">+20.1% from last month</p>
+      </CardContent>
+    </Card>
+  );
 }
+
+
+
+
+ 

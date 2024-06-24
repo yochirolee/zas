@@ -19,7 +19,7 @@ export async function fetchRevenue() {
   try {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
-/* 
+    /* 
      console.log('Fetching revenue data...');
     await new Promise((resolve) => setTimeout(resolve, 3000));
  */
@@ -91,7 +91,7 @@ export async function fetchCardData() {
   }
 }
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 10;
 export async function fetchFilteredInvoices(
   query: string,
   currentPage: number,
@@ -236,5 +236,20 @@ export async function getUser(email: string) {
   } catch (error) {
     console.error('Failed to fetch user:', error);
     throw new Error('Failed to fetch user.');
+  }
+}
+
+export async function getFilteredPackagesByContainerId(containerId: number) {
+  noStore();
+  try {
+    
+
+    const packages = await fetch(
+      `http://localhost:3000/api/v1/parcels/container/${containerId}`,
+    );
+    return packages.json();
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch packages.');
   }
 }
