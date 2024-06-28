@@ -23,7 +23,7 @@ const products = [
     href: '#',
     imageSrc:
      {productImage},
-    imageAlt: "Front of men's Basic Tee in black.",
+    imageAlt: "Front of mens Basic Tee in black.",
     price: '$35',
     color: 'Black',
   },
@@ -33,7 +33,7 @@ const products = [
     href: '#',
     imageSrc:
       {productImage},
-    imageAlt: "Front of men's Basic Tee in black.",
+    imageAlt: "Front of mens Basic Tee in black.",
     price: '$35',
     color: 'Black',
   },
@@ -43,7 +43,7 @@ const products = [
     href: '#',
     imageSrc:
      {productImage},
-    imageAlt: "Front of men's Basic Tee in black.",
+    imageAlt: "Front of mens Basic Tee in black.",
     price: '$35',
     color: 'Black',
   },
@@ -53,7 +53,7 @@ const products = [
     href: '#',
     imageSrc:
       {productImage},
-    imageAlt: "Front of men's Basic Tee in black.",
+    imageAlt: "Front of mens Basic Tee in black.",
     price: '$35',
     color: 'Black',
   },
@@ -63,7 +63,7 @@ const products = [
     href: '#',
     imageSrc:
      {productImage},
-    imageAlt: "Front of men's Basic Tee in black.",
+    imageAlt: "Front of mens Basic Tee in black.",
     price: '$35',
     color: 'Black',
   },
