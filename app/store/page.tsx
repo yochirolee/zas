@@ -1,7 +1,4 @@
-import {
-  MainCarousel,
-  ScrollAreaHorizontalDemo,
-} from './components/main-carousel';
+import { ScrollAreaHorizontalDemo } from './components/main-carousel';
 import banner7 from '@/public/banner-7.webp';
 import banner8 from '@/public/banner-8.webp';
 import banner9 from '@/public/banner-9.webp';
@@ -20,17 +17,32 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { ScrollAreaHorizontalDemo2 } from './components/second-carousel';
 import ProductCard from './components/product-card';
 import CallToAction from './components/call-to-action';
+import { BoxCard } from './components/box-card';
 
 export default function Page() {
   return (
     <div className=" mx-auto w-full  ">
       <CallToAction />
-
-      <div className="mx-auto max-w-7xl grid  gap-2 p-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:p-6">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+      <div className="mx-auto max-w-7xl rounded-lg p-4  lg:gap-4  lg:p-6">
+        <h2 className="mb-4 text-xl font-semibold">
+          Tu solo agrega lo que desees
+        </h2>
+        <div className="mx-auto grid items-center gap-2  p-2 sm:grid-cols-2 lg:grid-cols-3  lg:gap-4  ">
+          <BoxCard />
+          <BoxCard />
+          <BoxCard />
+        </div>
+      </div>
+      <div className="mx-auto max-w-7xl  p-4  lg:gap-4  lg:p-6">
+        <h2 className="my-4 text-xl font-semibold">
+          Ofertas por tiempo limitado
+        </h2>
+        <div className="mx-auto grid items-center gap-2  p-2 sm:grid-cols-2 lg:grid-cols-4  lg:gap-4  ">
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+          <ProductCard />
+        </div>
       </div>
       {/*  <ScrollAreaHorizontalDemo />
       <ScrollAreaHorizontalDemo2 />
