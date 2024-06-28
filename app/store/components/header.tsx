@@ -1,10 +1,8 @@
-import AcmeLogo from '@/app/ui/acme-logo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Search, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
-import avatar from '@/public/avatar.png';
-import logo from '@/public/zaslogo.png';
+import logo from '@/public/logo.svg';
 import Link from 'next/link';
 
 export default function Header() {
@@ -34,7 +32,7 @@ export default function Header() {
 
               <Button variant="ghost">Sign In</Button>
             </div>
-        
+
             <Button>
               <Link prefetch={true} href="/dashboard">
                 Dashboard
@@ -52,7 +50,7 @@ export default function Header() {
                   0
                 </span>
               </div>
-              <div className="h-6 w-6 ml-4">
+              <div className="ml-4 h-6 w-6">
                 <Avatar>
                   <AvatarImage
                     src="https://github.com/shadcn.png"
@@ -62,7 +60,6 @@ export default function Header() {
                 </Avatar>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
