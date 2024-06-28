@@ -29,8 +29,9 @@ export default function Header() {
                   0
                 </span>
               </div>
-
-              <Button variant="ghost">Sign In</Button>
+              <Link href="/auth/signin">
+                <Button variant="ghost">Sign In</Button>
+              </Link>
             </div>
 
             <Button>
