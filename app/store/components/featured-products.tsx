@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import productImage from '@/public/product-page-01-related-product-01.jpg';
+
 /*
   This example requires some changes to your config:
   
@@ -20,7 +22,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+     {productImage},
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -30,7 +32,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      {productImage},
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -40,7 +42,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+     {productImage},
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -50,7 +52,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      {productImage},
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -60,7 +62,7 @@ const products = [
     name: 'Basic Tee',
     href: '#',
     imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+     {productImage},
     imageAlt: "Front of men's Basic Tee in black.",
     price: '$35',
     color: 'Black',
@@ -81,7 +83,7 @@ export default function FeaturedProducts() {
             <div key={product.id} className="group relative">
               <div className="aspect-h-1 aspect-w-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                 <Image
-                  src={product.imageSrc}
+                  src={productImage}
                   alt={product.imageAlt}
                   height={400}
                   width={400}
