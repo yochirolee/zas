@@ -86,3 +86,9 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type Parcel={
+  hbl: string;
+  invoiceId: string;
+  statusName: string;
+}

@@ -19,7 +19,6 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   { name: 'Products', href: '/dashboard/products', icon: Package },
-  { name: 'Tracking', href: '/dashboard/tracking', icon: Search },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
 ];
 
