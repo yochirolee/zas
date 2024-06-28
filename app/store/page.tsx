@@ -1,4 +1,7 @@
-import { MainCarousel } from './components/main-carousel';
+import {
+  MainCarousel,
+  ScrollAreaHorizontalDemo,
+} from './components/main-carousel';
 import banner7 from '@/public/banner-7.webp';
 import banner8 from '@/public/banner-8.webp';
 import banner9 from '@/public/banner-9.webp';
@@ -13,13 +16,26 @@ import MainBanner from './components/main-banner';
 import Image from 'next/image';
 import banner from '@/public/banner-10.webp';
 import Promo from './components/promo';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { ScrollAreaHorizontalDemo2 } from './components/second-carousel';
+import ProductCard from './components/product-card';
+import CallToAction from './components/call-to-action';
 
 export default function Page() {
   return (
-    <div className=" w-full bg-gray-100">
-      <Promo />
+    <div className=" mx-auto w-full  ">
+      <CallToAction />
 
-      <CategoriesCarousel />
+      <div className="mx-auto max-w-7xl grid  gap-2 p-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:p-6">
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+      </div>
+      {/*  <ScrollAreaHorizontalDemo />
+      <ScrollAreaHorizontalDemo2 />
+
+      <CategoriesCarousel /> */}
       {/*   
       <div className="mx-auto max-w-[1920px] px-4 md:px-8 2xl:px-16">
         <div className="mx-auto mb-12 pb-0.5 md:-mt-2.5 md:mb-14 md:pb-0 lg:pb-1 xl:mb-16 xl:pb-0">

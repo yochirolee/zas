@@ -36,19 +36,19 @@ export const works: Artwork[] = [
   },
 ];
 
-export function ScrollAreaHorizontalDemo() {
+export function ScrollAreaHorizontalDemo2() {
   return (
     <ScrollArea className="w-full whitespace-nowrap rounded-md border p-20">
-      <div className="flex w-[max] space-x-4 p-4">
+      <div className="flex w-[max] justify-between space-x-4 p-4">
         {works.map((artwork) => (
           <figure key={artwork.artist} className="shrink-0">
-            <div className="overflow-hidden rounded-md">
+            <div className="max-h-40 max-w-40 overflow-hidden rounded-md">
               <Image
                 src={artwork.art}
                 alt={`Photo by ${artwork.artist}`}
                 className="aspect-[3/4] h-fit w-fit object-cover"
-                width={300}
-                height={400}
+                width={200}
+                height={300}
               />
             </div>
             <figcaption className="pt-2 text-xs text-muted-foreground">

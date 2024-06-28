@@ -26,7 +26,7 @@ export default function NavLinks() {
   const pathname = usePathname();
   return (
     <div className="flex-1 border-r">
-      <nav className="grid items-start px-2   lg:px-4">
+      <nav className="grid gap-2 px-2 text-lg font-medium text-gray-900">
         {links.map((link) => {
           const LinkIcon = link.icon;
           return (
@@ -34,13 +34,13 @@ export default function NavLinks() {
               key={link.name}
               href={link.href}
               className={clsx(
-                'hover:text-primary" flex items-center gap-3 rounded-lg px-3 py-2 transition-all',
+                ' mx-3 flex items-center gap-4 rounded-xl px-3 py-2 text-gray-900 text-muted-foreground hover:text-foreground',
                 {
                   'bg-gray-100 text-gray-900': pathname === link.href,
                 },
               )}
             >
-              <LinkIcon className="w-5" />
+              <LinkIcon className="w-5 text-gray-700" />
               <p className="hidden md:block">{link.name}</p>
             </Link>
           );

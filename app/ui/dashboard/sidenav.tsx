@@ -15,7 +15,7 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar';
 export default function SideNav() {
   return (
     <div className="flex h-full max-h-screen flex-col gap-2">
-      <div className="flex h-14 items-center justify-center border-b px-4 lg:h-[60px] lg:px-6">
+      <div className="flex h-14 items-center justify-center border-b px-4 lg:h-[60px] lg:px-2">
         <Link href="/dashboard" className=" flex gap-2 font-semibold">
           <Image
             src={logo}
@@ -24,7 +24,6 @@ export default function SideNav() {
             alt="logo"
             className="h-24 w-24 rotate-[16deg] "
           />
-         
         </Link>
       </div>
       <div className="min-h-40 bg-gray-100">
