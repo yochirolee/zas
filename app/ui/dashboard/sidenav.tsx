@@ -1,18 +1,14 @@
+'use client';
 import Link from 'next/link';
-import NavLinks from '@/app/ui/dashboard/nav-links';
 import logo from '@/public/logo.svg';
 import Image from 'next/image';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+import { links } from '@/app/lib/nav-links';
 
 export default function SideNav() {
+  const pathname = usePathname();
   return (
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center justify-center border-b px-4 lg:h-[60px] lg:px-2">
@@ -33,22 +29,29 @@ export default function SideNav() {
           </Avatar>
         </div>
       </div>
-      <NavLinks />
-      {/*   <div className="mt-auto p-4">
-        <Card x-chunk="dashboard-02-chunk-0">
-          <CardHeader className="p-2 pt-0 md:p-4">
-            <CardTitle>Upgrade to Pro</CardTitle>
-            <CardDescription>
-              Unlock all features and get unlimited access to our support team.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-            <Button size="sm" className="w-full">
-              Upgrade
-            </Button>
-          </CardContent>
-        </Card>
-      </div> */}
+
+      <div className="flex-1 border-r">
+        <nav className="grid gap-2 px-2 text-lg font-medium text-gray-900">
+          {links.map((link) => {
+            const LinkIcon = link.icon;
+            return (
+              <Link
+                href={link.href}
+                className={clsx(
+                  ' mx-3 flex items-center gap-4 rounded-xl px-3 py-2 text-gray-900 text-muted-foreground hover:text-foreground',
+                  {
+                    'bg-gray-100 text-gray-900': pathname === link.href,
+                  },
+                )}
+              >
+                <LinkIcon className="h-5 w-5" />
+
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
     </div>
   );
 }

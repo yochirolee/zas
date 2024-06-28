@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Search, ShoppingBag } from 'lucide-react';
+import { Search, Settings, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 import logo from '@/public/logo.svg';
 import Link from 'next/link';
@@ -51,6 +51,14 @@ export default function Header() {
                   0
                 </span>
               </div>
+              <Link
+                prefetch={true}
+                href="/dashboard"
+                className="relative   cursor-pointer p-2"
+              >
+                <Settings className="h-6 w-6 " />
+              
+              </Link>
               <div className="ml-4 h-6 w-6">
                 <Avatar>
                   <AvatarImage

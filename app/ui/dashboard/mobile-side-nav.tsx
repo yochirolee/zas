@@ -1,3 +1,4 @@
+'use client';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,23 +17,16 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import {
-  Bell,
-  CircleUser,
-  Home,
-  LineChart,
-  Menu,
-  Package,
-  Package2,
-  Search,
-  ShoppingCart,
-  Users,
-} from 'lucide-react';
+import { Bell, Menu, Search } from 'lucide-react';
 import Link from 'next/link';
+import { links } from '@/app/lib/nav-links';
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
 
 export default function MobileSideNav() {
+  const pathname = usePathname();
   return (
     <header className="flex h-14 items-center gap-4 border-b  px-4 lg:h-[60px] lg:px-6">
       <Sheet>
@@ -43,8 +37,28 @@ export default function MobileSideNav() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="flex flex-col">
-          <nav className="grid gap-2 text-lg font-medium">
-            <Link
+          <nav className="mt-4 grid gap-2 text-lg font-medium">
+            {links.map((link) => {
+              const LinkIcon = link.icon;
+              return (
+                <SheetClose asChild key={link.name} >
+                <Link 
+                  href={link.href}
+                  className={clsx(
+                    ' mx-3 flex items-center gap-4 rounded-xl px-3 py-2 text-gray-900 text-muted-foreground hover:text-foreground',
+                    {
+                      'bg-gray-100 text-gray-900': pathname === link.href,
+                    },
+                  )}
+                >
+                  <LinkIcon className="h-5 w-5" />
+
+                  {link.name}
+                </Link>
+                </SheetClose>
+              );
+            })}
+            {/*  <Link
               href="#"
               className="flex items-center gap-2 text-lg font-semibold"
             >
@@ -88,7 +102,7 @@ export default function MobileSideNav() {
             >
               <LineChart className="h-5 w-5" />
               Analytics
-            </Link>
+            </Link> */}
           </nav>
           <div className="mt-auto">
             <Card>
