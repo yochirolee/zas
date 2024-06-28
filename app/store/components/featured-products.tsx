@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 /*
   This example requires some changes to your config:
   
@@ -78,9 +80,11 @@ export default function FeaturedProducts() {
           {products.map((product) => (
             <div key={product.id} className="group relative">
               <div className="aspect-h-1 aspect-w-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
-                <img
+                <Image
                   src={product.imageSrc}
                   alt={product.imageAlt}
+                  height={400}
+                  width={400}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>

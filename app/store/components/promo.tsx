@@ -1,4 +1,3 @@
-import Image from 'next/image';
 
 export default function Promo() {
   return (
@@ -11,7 +10,7 @@ export default function Promo() {
             </h1>
             <p className="mt-4 text-xl text-gray-500">
               This year, our new summer collection will shelter you from the
-              harsh elements of a world that doesn't care if you live or die.
+              harsh elements of a world that doesnt care if you live or die.
             </p>
             <a
               href="#"
