@@ -10,7 +10,7 @@ import Link from 'next/link';
 export default function Header() {
   return (
     <header id="store-header" className="relative z-40 h-16 w-full    lg:h-16">
-      <div className=" body-font fixed z-20 h-16 w-full  border-b bg-white px-4 text-gray-700 shadow-sm transition duration-200 ease-in-out sm:h-16 lg:h-16 ">
+      <div className=" body-font fixed z-20 h-16 w-full   bg-white px-4 text-gray-700 shadow-sm transition duration-200 ease-in-out sm:h-16 lg:h-16 ">
         <div className="mx-auto flex h-full max-w-[1920px]  items-center justify-between">
           <Image
             src={logo}
@@ -34,7 +34,7 @@ export default function Header() {
 
               <Button variant="ghost">Sign In</Button>
             </div>
-
+        
             <Button>
               <Link prefetch={true} href="/dashboard">
                 Dashboard
@@ -52,7 +52,7 @@ export default function Header() {
                   0
                 </span>
               </div>
-              <div className="ml-4 h-6 w-6">
+              <div className="h-6 w-6 ml-4">
                 <Avatar>
                   <AvatarImage
                     src="https://github.com/shadcn.png"
@@ -62,6 +62,7 @@ export default function Header() {
                 </Avatar>
               </div>
             </div>
+            
           </div>
         </div>
       </div>

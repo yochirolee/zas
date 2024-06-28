@@ -6,43 +6,36 @@ import {
   fetchFilteredInvoices,
   fetchPackagesByContainerId,
 } from '@/app/lib/data';
+import { Badge } from 'lucide-react';
 
-export default async function InvoicesTable({
-  query,
-  currentPage,
-}: {
-  query: string;
-  currentPage: number;
-}) {
-  const invoices = await fetchFilteredInvoices(query, currentPage);
+export default async function ParcelTables() {
+  const {
+    leght,
+    inPort,
+    data: container,
+  } = await fetchPackagesByContainerId(117);
+
 
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
           <div className="md:hidden">
-            {invoices?.map((invoice) => (
+            {container?.map((parcel) => (
               <div
-                key={invoice.id}
+                key={parcel.hbl}
                 className="mb-2 w-full rounded-md bg-white p-4"
               >
                 <div className="flex items-center justify-between border-b pb-4">
                   <div>
                     <div className="mb-2 flex items-center">
-                      <Image
-                        src={invoice.image_url}
-                        className="mr-2 rounded-full"
-                        width={28}
-                        height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      />
-                      <p>{invoice.name}</p>
+                      <p>{parcel.hbl}</p>
                     </div>
-                    <p className="text-sm text-gray-500">{invoice.email}</p>
+                    <p className="text-sm text-gray-500">{parcel.invoiceId}</p>
                   </div>
-                  <InvoiceStatus status={invoice.status} />
+                  <Badge>{parcel.statusName}</Badge>
                 </div>
-                <div className="flex w-full items-center justify-between pt-4">
+                {/*  <div className="flex w-full items-center justify-between pt-4">
                   <div>
                     <p className="text-xl font-medium">
                       {formatCurrency(invoice.amount)}
@@ -53,7 +46,7 @@ export default async function InvoicesTable({
                     <UpdateInvoice id={invoice.id} />
                     <DeleteInvoice id={invoice.id} />
                   </div>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
@@ -81,41 +74,32 @@ export default async function InvoicesTable({
               </tr>
             </thead>
             <tbody className="bg-white">
-              {invoices?.map((invoice) => (
+              {container?.map((parcel) => (
                 <tr
-                  key={invoice.id}
+                  key={parcel.hbl}
                   className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
                 >
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
-                      <Image
-                        src={invoice.image_url}
-                        className="rounded-full"
-                        width={28}
-                        height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      />
-                      <p>{invoice.name}</p>
+                      <p>{parcel.hbl}</p>
                     </div>
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    {invoice.email}
+                    {parcel.invoiceId}
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-3">9</td>
+                  <td className="whitespace-nowrap px-3 py-3">
+                    {formatDateToLocal(parcel.updatedAt)}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
-                    {formatCurrency(invoice.amount)}
+                    <InvoiceStatus status={parcel.status} />
                   </td>
-                  <td className="whitespace-nowrap px-3 py-3">
-                    {formatDateToLocal(invoice.date)}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-3">
-                    <InvoiceStatus status={invoice.status} />
-                  </td>
-                  <td className="whitespace-nowrap py-3 pl-6 pr-3">
+                  {/* <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
                       <UpdateInvoice id={invoice.id} />
                       <DeleteInvoice id={invoice.id} />
                     </div>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

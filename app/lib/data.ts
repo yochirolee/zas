@@ -239,14 +239,13 @@ export async function getUser(email: string) {
   }
 }
 
-export async function getFilteredPackagesByContainerId(containerId: number) {
+export async function fetchPackagesByContainerId(containerId: number) {
   noStore();
   try {
-    
-
     const packages = await fetch(
       `http://localhost:3000/api/v1/parcels/container/${containerId}`,
     );
+    console.log('Packages:', packages);
     return packages.json();
   } catch (error) {
     console.error('Database Error:', error);
