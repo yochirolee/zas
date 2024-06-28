@@ -36,6 +36,7 @@ export default function SideNav() {
             const LinkIcon = link.icon;
             return (
               <Link
+                key={link.name}
                 href={link.href}
                 className={clsx(
                   ' mx-3 flex items-center gap-4 rounded-xl px-3 py-2 text-gray-900 text-muted-foreground hover:text-foreground',
