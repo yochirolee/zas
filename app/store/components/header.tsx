@@ -1,8 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Search, Settings, ShoppingBag } from 'lucide-react';
+import { Search, Settings } from 'lucide-react';
 import Image from 'next/image';
-import logo from '@/public/ctelogo.png';
 import Link from 'next/link';
 import Cart from './cart';
 
@@ -11,13 +10,14 @@ export default function Header() {
     <header id="store-header" className="relative z-40 h-16 w-full    lg:h-16">
       <div className=" body-font fixed z-20 h-16 w-full   bg-white px-4 text-gray-700 shadow-sm transition duration-200 ease-in-out sm:h-16 lg:h-16 ">
         <div className="mx-auto flex h-full max-w-[1920px]  items-center justify-between">
-          <Image
+          {/*  <Image
             src={logo}
             alt="CTENvios Logo"
             width={40}
             height={40}
             className="object-scale-down lg:h-16 lg:w-16"
-          />
+          /> */}
+          <div></div>
 
           <div className=" hidden items-center space-x-2 md:flex ">
             <div className=" flex items-center ">

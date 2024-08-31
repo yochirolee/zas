@@ -10,8 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+
 import {
   Select,
   SelectContent,
@@ -19,16 +18,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { ShoppingCart, Plus, Minus, Trash2, Plane, Ship } from 'lucide-react';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetFooter,
-} from '@/components/ui/sheet';
+import { Plus, Minus } from 'lucide-react';
+
 import { useCartStore } from '../hooks/useCartStore';
 
 type Product = {
@@ -109,153 +100,9 @@ const shippingRates = {
   ship: 1.5, // $1.5 per pound
 };
 
-//convert the cart to a custom hook
-const useCart = () => {
-  const [cart, setCart] = useState<CartItem[]>([]);
-  const [shippingMethod, setShippingMethod] = useState<ShippingMethod>('ship');
-  const [filter, setFilter] = useState<'all' | 'ctenvios' | 'amazon' | 'walmart'>(
-    'all',
-  );
-  const addToCart = (product: Product) => {
-    setCart((currentCart) => {
-      const existingItem = currentCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return currentCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      }
-      return [...currentCart, { ...product, quantity: 1 }];
-    });
-  };
-
-  const removeFromCart = (productId: number) => {
-    setCart((currentCart) => {
-      const existingItem = currentCart.find((item) => item.id === productId);
-      if (existingItem && existingItem.quantity > 1) {
-        return currentCart.map((item) =>
-          item.id === productId
-            ? { ...item, quantity: item.quantity - 1 }
-            : item,
-        );
-      }
-      return currentCart.filter((item) => item.id !== productId);
-    });
-  };
-
-  const getCartQuantity = (productId: number) => {
-    const item = cart.find((item) => item.id === productId);
-    return item ? item.quantity : 0;
-  };
-
-  const calculateTotalWeight = () => {
-    return cart.reduce((sum, item) => sum + item.weight * item.quantity, 0);
-  };
-
-  const calculateShippingCost = () => {
-    const totalWeight = calculateTotalWeight();
-    return totalWeight * shippingRates[shippingMethod];
-  };
-
-  const calculateItemTotal = (item: CartItem) => {
-    return (item.price * item.quantity).toFixed(2);
-  };
-
-  const calculateTotal = () => {
-    const itemsTotal = cart.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0,
-    );
-    const shippingCost = calculateShippingCost();
-    return (itemsTotal + shippingCost).toFixed(2);
-  };
-  return {
-    cart,
-    shippingMethod,
-    filter,
-    addToCart,
-    removeFromCart,
-    getCartQuantity,
-    calculateTotalWeight,
-    calculateShippingCost,
-    calculateItemTotal,
-    calculateTotal,
-    setShippingMethod,
-    setFilter,
-  };
-};
-
 export default function ProductsList() {
-  const {
-    cart,
-    shippingMethod,
-    filter,
-    addToCart,
-    removeFromCart,
-    getCartQuantity,
-    calculateTotalWeight,
-    calculateShippingCost,
-    calculateItemTotal,
-    calculateTotal,
-    setShippingMethod,
-    setFilter,
-  } = useCartStore();
-
-  /*   const addToCart = (product: Product) => {
-    setCart((currentCart) => {
-      const existingItem = currentCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return currentCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      }
-      return [...currentCart, { ...product, quantity: 1 }];
-    });
-  };
-
-  const removeFromCart = (productId: number) => {
-    setCart((currentCart) => {
-      const existingItem = currentCart.find((item) => item.id === productId);
-      if (existingItem && existingItem.quantity > 1) {
-        return currentCart.map((item) =>
-          item.id === productId
-            ? { ...item, quantity: item.quantity - 1 }
-            : item,
-        );
-      }
-      return currentCart.filter((item) => item.id !== productId);
-    });
-  };
-
-  const getCartQuantity = (productId: number) => {
-    const item = cart.find((item) => item.id === productId);
-    return item ? item.quantity : 0;
-  };
-
-  const calculateTotalWeight = () => {
-    return cart.reduce((sum, item) => sum + item.weight * item.quantity, 0);
-  };
-
-  const calculateShippingCost = () => {
-    const totalWeight = calculateTotalWeight();
-    return totalWeight * shippingRates[shippingMethod];
-  };
-
-  const calculateItemTotal = (item: CartItem) => {
-    return (item.price * item.quantity).toFixed(2);
-  };
-
-  const calculateTotal = () => {
-    const itemsTotal = cart.reduce(
-      (sum, item) => sum + item.price * item.quantity,
-      0,
-    );
-    const shippingCost = calculateShippingCost();
-    return (itemsTotal + shippingCost).toFixed(2);
-  }; */
+  const { filter, addToCart, removeFromCart, getCartQuantity, setFilter } =
+    useCartStore();
 
   const filteredProducts =
     filter === 'all'
