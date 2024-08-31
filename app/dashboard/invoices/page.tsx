@@ -6,6 +6,7 @@ import { lusitana } from '@/app/ui/fonts';
 import { Suspense } from 'react';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { fetchInvoicesPages } from '@/app/lib/data';
+import InvoicesTable2 from '@/app/ui/invoices/invoices-table';
 
 export default async function Page({
   searchParams,
@@ -28,10 +29,11 @@ export default async function Page({
         <CreateInvoice />
       </div>
       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
-        <Table query={query} currentPage={currentPage} />
+        <InvoicesTable2 query={query} currentPage={currentPage} />
       </Suspense>
+
       <div className="mt-5 flex w-full justify-center">
-         <Pagination totalPages={totalPages} /> 
+        <Pagination totalPages={totalPages} />
       </div>
     </div>
   );

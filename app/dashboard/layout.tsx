@@ -1,3 +1,5 @@
+'use client';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 import {
@@ -13,6 +15,11 @@ import SideNav from '../ui/dashboard/sidenav';
 import MobileSideNav from '../ui/dashboard/mobile-side-nav';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  const splitPath = pathname.split('/').filter((path) => path !== '');
+
+  console.log(pathname,splitPath, 'pathname');
   return (
     <div className="grid min-h-screen w-full  md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r  md:block">
@@ -21,27 +28,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="flex flex-col border-r">
         <MobileSideNav />
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-          {/* <div className="flex items-center">
+          <div className="flex items-center">
             <Breadcrumb className="hidden md:flex">
               <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href="#">Dashboard</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link href="#">Products</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>All Products</BreadcrumbPage>
-                </BreadcrumbItem>
+                {
+                  splitPath.map((path, index) => {
+                    return (
+                      <BreadcrumbItem key={index}>
+                        <BreadcrumbLink href={`/${path}`}>
+                          {path.charAt(0).toUpperCase() + path.slice(1)}
+                        </BreadcrumbLink>
+                        <BreadcrumbSeparator />
+                      </BreadcrumbItem>
+                    );
+                  })
+                }
               </BreadcrumbList>
             </Breadcrumb>
-          </div> */}
+          </div>
 
           {children}
         </main>

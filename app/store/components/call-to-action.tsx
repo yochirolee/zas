@@ -24,11 +24,11 @@ export default function CallToAction() {
               <CarouselContent>
                 <CarouselItem>
                   <img
-                    src="/logo.svg"
-                    width="500"
+                    src="/slider4.jpg"
+                    width="500" 
                     height="500"
                     alt="Product Image"
-                    className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                    className="mx-auto aspect-square overflow-hidden rounded-xl object-fill object-center sm:w-full"
                   />
                 </CarouselItem>
                 <CarouselItem>
@@ -63,11 +63,13 @@ export default function CallToAction() {
           </div>{' '}
           <div className="relative space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Discover Your Perfect Fit
+              Envios a Cuba
             </h2>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Explore our latest collection of stylish and comfortable apparel
-              tailored to your needs.
+              Envíe sus productos a Cuba de forma rápida y segura.
+              <br />
+              Con más de 10 años de trayectoria en el envío de mercancías a
+              Cuba.
             </p>
             <Link
               href="#"

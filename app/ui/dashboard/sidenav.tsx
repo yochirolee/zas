@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import logo from '@/public/logo.svg';
+import logo from '@/public/ctelogo.png';
 import Image from 'next/image';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';
@@ -11,14 +11,14 @@ export default function SideNav() {
   const pathname = usePathname();
   return (
     <div className="flex h-full max-h-screen flex-col gap-2">
-      <div className="flex h-14 items-center justify-center border-b px-4 lg:h-[60px] lg:px-2">
+      <div className="flex h-14 items-center justify-left border-b px-4 lg:h-[60px] lg:px-2">
         <Link href="/dashboard" className=" flex gap-2 font-semibold">
           <Image
             src={logo}
-            width={24}
-            height={24}
+            width={50}
+            height={50}
             alt="logo"
-            className="h-24 w-24 rotate-[16deg] "
+            className="h-12 w-12 "
           />
         </Link>
       </div>

@@ -1,32 +1,28 @@
 import ProductCard from './components/product-card';
 import CallToAction from './components/call-to-action';
 import { BoxCard } from './components/box-card';
+import { ScrollAreaHorizontalDemo } from './components/main-carousel';
+import { ScrollAreaHorizontalDemo2 } from './components/second-carousel';
+import ProductsList from './components/products-list';
 
 export default function Page() {
   return (
     <div className=" mx-auto w-full  ">
       <CallToAction />
-      <div className="container mx-auto max-w-7xl rounded-lg p-4  lg:gap-4  lg:p-6">
-        <h2 className="mb-4 text-xl font-semibold">
-          Tu solo agrega lo que desees
-        </h2>
-        <div className="mx-auto grid justify-center gap-2  p-2 sm:grid-cols-2 lg:grid-cols-3  lg:gap-4  ">
+
+      <section className="container  mx-auto p-4">
+        <div className="mb-8 flex flex-col">
+          <h1 className="text-2xl font-bold">Crea tu Caja</h1>
+          <p>Crea tu caja con los productos que necesites</p>
+        </div>
+        <div className="mx-auto grid justify-center  gap-2   sm:grid-cols-2 lg:grid-cols-3    ">
           <BoxCard />
           <BoxCard />
           <BoxCard />
         </div>
-      </div>
-      <div className="container mx-auto max-w-7xl  p-4  lg:gap-4  lg:p-6">
-        <h2 className="my-4 text-xl font-semibold">
-          Ofertas por tiempo limitado
-        </h2>
-        <div className="mx-auto grid justify-center  gap-2  p-2 sm:grid-cols-2 lg:grid-cols-4  lg:gap-4  ">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </div>
-      </div>
+      </section>
+
+      <ProductsList />
       {/*  <ScrollAreaHorizontalDemo />
       <ScrollAreaHorizontalDemo2 />
 
