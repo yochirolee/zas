@@ -25,12 +25,13 @@ export default function CallToAction() {
                 <CarouselItem>
                   <img
                     src="/slider4.jpg"
-                    width="500" 
+                    width="500"
                     height="500"
                     alt="Product Image"
                     className="mx-auto aspect-square overflow-hidden rounded-xl object-fill object-center sm:w-full"
                   />
                 </CarouselItem>
+
                 <CarouselItem>
                   <img
                     src="/placeholder.svg"
