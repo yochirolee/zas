@@ -10,12 +10,18 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Plus, Minus } from 'lucide-react';
-
 import { useCartStore } from '@/app/hooks/useCartStore';
-import Image from 'next/image';
 
-type Product = {
+interface Product {
   id: number;
   name: string;
   price: number;
@@ -23,7 +29,10 @@ type Product = {
   weight: number; // in pounds
   source: 'ctenvios' | 'amazon' | 'walmart';
   image: string;
-};
+  rating: number;
+  category: string;
+  stock: number;
+}
 
 const products: Product[] = [
   {
@@ -34,6 +43,9 @@ const products: Product[] = [
     weight: 4.5,
     source: 'ctenvios',
     image: '/1.webp?height=200&width=200',
+    rating: 4.5,
+    category: 'Electronics',
+    stock: 10,
   },
   {
     id: 2,
@@ -43,6 +55,9 @@ const products: Product[] = [
     weight: 0.5,
     source: 'amazon',
     image: '/2.webp?height=200&width=200',
+    rating: 4.2,
+    category: 'Electronics',
+    stock: 10,
   },
   {
     id: 3,
@@ -52,6 +67,9 @@ const products: Product[] = [
     weight: 0.75,
     source: 'walmart',
     image: '/3.webp?height=200&width=200',
+    rating: 4.2,
+    category: 'Electronics',
+    stock: 10,
   },
   {
     id: 4,
@@ -61,6 +79,9 @@ const products: Product[] = [
     weight: 1.0,
     source: 'ctenvios',
     image: '/4.webp?height=200&width=200',
+    rating: 4.2,
+    category: 'Electronics',
+    stock: 10,
   },
   {
     id: 5,
@@ -70,6 +91,9 @@ const products: Product[] = [
     weight: 0.25,
     source: 'amazon',
     image: '/slider3.jpg?height=200&width=200',
+    rating: 4.2,
+    category: 'Electronics',
+    stock: 10,
   },
   {
     id: 6,
@@ -79,51 +103,9 @@ const products: Product[] = [
     weight: 1.5,
     source: 'walmart',
     image: '/slider4.jpg?height=200&width=200',
-  },
-  {
-    id: 7,
-    name: 'Smartphone',
-    price: 499.99,
-    description: 'Latest model smartphone',
-    weight: 0.5,
-    source: 'amazon',
-    image: '/2.webp?height=200&width=200',
-  },
-  {
-    id: 8,
-    name: 'Headphones',
-    price: 99.99,
-    description: 'Noise-cancelling headphones',
-    weight: 0.75,
-    source: 'walmart',
-    image: '/3.webp?height=200&width=200',
-  },
-  {
-    id: 9,
-    name: 'Tablet',
-    price: 299.99,
-    description: '10-inch tablet',
-    weight: 1.0,
-    source: 'ctenvios',
-    image: '/4.webp?height=200&width=200',
-  },
-  {
-    id: 10,
-    name: 'Tablet',
-    price: 299.99,
-    description: '10-inch tablet',
-    weight: 1.0,
-    source: 'ctenvios',
-    image: '/4.webp?height=200&width=200',
-  },
-  {
-    id: 11,
-    name: 'Tablet',
-    price: 299.99,
-    description: '10-inch tablet',
-    weight: 1.0,
-    source: 'ctenvios',
-    image: '/4.webp?height=200&width=200',
+    rating: 4.2,
+    category: 'Electronics',
+    stock: 10,
   },
 ];
 
@@ -149,7 +131,7 @@ export default function ProductsList() {
 
   return (
     <div>
-      {/*   <header className="mb-8 flex items-center justify-between">
+      <header className="mb-8 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Nuestros Productos</h1>
         <div className="flex items-center space-x-4">
           <Select
@@ -167,18 +149,17 @@ export default function ProductsList() {
             </SelectContent>
           </Select>
         </div>
-      </header> */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      </header>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {filteredProducts.map((product) => (
           <Card key={product.id} className="flex flex-col">
             <CardHeader className="p-4">
               <div className="relative mb-2 aspect-square">
-                <Image
+                <img
                   src={product.image}
                   alt={product.name}
-                  className="h-full w-full rounded-md object-cover"
-                  width={500}
-                  height={500}
+                  className="rounded-md object-cover"
+                  style={{ width: '100%', height: '100%' }}
                 />
                 <div className="absolute right-2 top-2 text-xs">
                   <span className=" mr-2 text-xs font-thin">sold by:</span>
@@ -201,7 +182,7 @@ export default function ProductsList() {
               </div>
             </CardContent>
             <CardFooter className="p-4 pt-0">
-              <div className="flex w-full items-center justify-between gap-2 ">
+              <div className="flex w-full items-center justify-between">
                 <Button size="sm" onClick={() => addToCart(product)}>
                   <Plus className="mr-2 h-4 w-4" /> Add to Cart
                 </Button>

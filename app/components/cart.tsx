@@ -54,10 +54,7 @@ export default function Cart() {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent
-        className="w-full overflow-y-auto"
-        style={{ maxWidth: '30vw' }}
-      >
+      <SheetContent className="overflow-y-auto w-full" style={{ maxWidth: '30vw' }}>
         <SheetHeader>
           <SheetTitle>Shopping Cart</SheetTitle>
           <SheetDescription>

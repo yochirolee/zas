@@ -4,7 +4,7 @@ import banner1 from '@/public/banner-10.webp';
 
 export default function MainBanner() {
   return (
-    <div className="h-screen bg-gray-300">
+    <div className="h-screen container max-w-7xl mx-auto bg-gray-300">
           <Image
             src={banner1}
             alt="Banner image"

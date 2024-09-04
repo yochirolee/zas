@@ -23,7 +23,7 @@ export default function CallToAction() {
                     width="500"
                     height="500"
                     alt="Product Image"
-                    className="mx-auto aspect-square overflow-hidden lg:rounded-xl object-fill object-center sm:w-full"
+                    className="mx-auto aspect-square overflow-hidden object-fill object-center sm:w-full lg:rounded-xl"
                   />
                 </CarouselItem>
 
@@ -57,7 +57,7 @@ export default function CallToAction() {
               </div>
             </Carousel>
           </div>
-          <div className="relative p-4 space-y-4">
+          <div className="relative space-y-4 p-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
               Envios a Cuba
             </h2>
@@ -68,9 +68,9 @@ export default function CallToAction() {
               Cuba.
             </p>
             <Link
-              href="#"
+              href="/store"
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              prefetch={false}
+              prefetch={true}
             >
               Shop Now
             </Link>

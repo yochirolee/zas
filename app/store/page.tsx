@@ -1,136 +1,202 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Search, ShoppingCart, Menu, Star, ChevronDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import ProductCard from './components/product-card';
-import CallToAction from './components/call-to-action';
-import { BoxCard } from './components/box-card';
-import { ScrollAreaHorizontalDemo } from './components/main-carousel';
-import { ScrollAreaHorizontalDemo2 } from './components/second-carousel';
 import ProductsList from './components/products-list';
 
-export default function Page() {
+// Mock product data
+const allProducts = [
+  {
+    id: 1,
+    name: 'Wireless Earbuds',
+    price: 79.99,
+    rating: 4.5,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Electronics',
+  },
+  {
+    id: 2,
+    name: 'Smart Watch',
+    price: 199.99,
+    rating: 4.2,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Electronics',
+  },
+  {
+    id: 3,
+    name: 'Portable Charger',
+    price: 39.99,
+    rating: 4.7,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Electronics',
+  },
+  {
+    id: 4,
+    name: 'Bluetooth Speaker',
+    price: 59.99,
+    rating: 4.3,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Electronics',
+  },
+  {
+    id: 5,
+    name: 'Laptop Backpack',
+    price: 49.99,
+    rating: 4.6,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Clothing',
+  },
+  {
+    id: 6,
+    name: 'Fitness Tracker',
+    price: 89.99,
+    rating: 4.4,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Electronics',
+  },
+  {
+    id: 7,
+    name: 'Novel: The Great Adventure',
+    price: 14.99,
+    rating: 4.8,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Books',
+  },
+  {
+    id: 8,
+    name: 'Coffee Maker',
+    price: 79.99,
+    rating: 4.5,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Home & Kitchen',
+  },
+  {
+    id: 9,
+    name: 'Board Game Set',
+    price: 29.99,
+    rating: 4.6,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Toys & Games',
+  },
+  {
+    id: 10,
+    name: 'Skincare Set',
+    price: 49.99,
+    rating: 4.7,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Beauty & Personal Care',
+  },
+  {
+    id: 11,
+    name: 'Yoga Mat',
+    price: 24.99,
+    rating: 4.4,
+    image: '/placeholder.svg?height=200&width=200',
+    category: 'Sports & Outdoors',
+  },
+];
+
+const categories = [
+  'All',
+  'Electronics',
+  'Clothing',
+  'Books',
+  'Home & Kitchen',
+  'Toys & Games',
+  'Beauty & Personal Care',
+  'Sports & Outdoors',
+];
+
+// Simulated API call
+const fetchProducts = (searchTerm: string, category: string) => {
+  return new Promise<typeof allProducts>((resolve) => {
+    setTimeout(() => {
+      let filteredProducts = allProducts;
+
+      if (searchTerm) {
+        filteredProducts = filteredProducts.filter((product) =>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase()),
+        );
+      }
+
+      if (category && category !== 'All') {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.category === category,
+        );
+      }
+
+      resolve(filteredProducts);
+    }, 500); // Simulate network delay
+  });
+};
+
+export default function Component() {
+  const [products, setProducts] = useState(allProducts);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const results = await fetchProducts(searchTerm, selectedCategory);
+      setProducts(results);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, [searchTerm, selectedCategory]);
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // The search is already triggered by the useEffect hook
+  };
+
   return (
-    <div className=" mx-auto w-full  ">
-      <CallToAction />
-
-      <section className="container  mx-auto p-4">
-        <div className="mb-8 flex flex-col">
-          <h1 className="text-2xl font-bold">Crea tu Caja</h1>
-          <p>Crea tu caja con los productos que necesites</p>
-        </div>
-        <div className="mx-auto grid justify-center  gap-2   sm:grid-cols-2 lg:grid-cols-3    ">
-          <BoxCard />
-          <BoxCard />
-          <BoxCard />
-        </div>
-      </section>
-
-      <ProductsList />
-      {/*  <ScrollAreaHorizontalDemo />
-      <ScrollAreaHorizontalDemo2 />
-
-      <CategoriesCarousel /> */}
-      {/*   
-      <div className="mx-auto max-w-[1920px] px-4 md:px-8 2xl:px-16">
-        <div className="mx-auto mb-12 pb-0.5 md:-mt-2.5 md:mb-14 md:pb-0 lg:pb-1 xl:mb-16 xl:pb-0">
-          <Image
-            src={banner10}
-            alt="banner10"
-            width={600}
-            height={400}
-            className="mt-10 h-full w-full rounded-xl object-cover"
-          />
-        </div>
-
-        <FeaturedProducts />
-
-        <div className=" mb-12 grid max-w-[1920px] grid-cols-2 gap-2 sm:grid-cols-9 md:mb-14 md:gap-2.5 xl:mb-16">
-          <div className="col-span-5 flex h-full w-full">
-            <div className="col-span-full mx-auto sm:col-span-5">
-              <Image
-                src={banner7}
-                alt="banner7"
-                width={600}
-                height={400}
-                className="h-full w-full object-cover"
-              />
+    <div className="flex min-h-screen flex-col">
+      <main className="flex flex-1">
+        <aside className="hidden w-64 bg-muted p-6 md:block">
+          <h2 className="mb-4 font-semibold">Categories</h2>
+          <ul className="space-y-2">
+            {categories.map((category) => (
+              <li key={category}>
+                <Button
+                  variant={category === selectedCategory ? 'default' : 'ghost'}
+                  className="w-full justify-start"
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Button>
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <section className="flex-1 p-6">
+          <h2 className="mb-6 text-2xl font-semibold">
+            {selectedCategory === 'All' ? 'All Products' : selectedCategory}
+          </h2>
+          {isLoading ? (
+            <div className="flex h-64 items-center justify-center">
+              <div className="h-32 w-32 animate-spin rounded-full border-b-2 border-primary"></div>
             </div>
-          </div>
-          <div className="col-span-4 flex h-full w-full  ">
-            <div className="grid grid-flow-col grid-cols-2 gap-8">
-              <div>
-                <Image
-                  src={banner8}
-                  alt="banner8"
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-
-              <Image
-                src={banner9}
-                alt="banner7"
-                className="h-full w-full object-cover object-center"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="mb-12 md:mb-14 xl:mb-16">
-          <div className="3xl:mb-8 -mt-2 mb-4 flex items-center justify-between pb-0.5 md:mb-5 lg:mb-6 2xl:mb-7">
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Categories
-            </h2>
-          </div>
-          <CategoriesCarousel />
-        </div>
-
-        <div className="mb-12 md:mb-14 xl:mb-16">
-          <div className="3xl:mb-8 -mt-2 mb-4 flex items-center justify-between pb-0.5 md:mb-5 lg:mb-6 2xl:mb-7">
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Features Products
-            </h2>
-          </div>
-        </div>
-
-        <div className="mb-20 grid  grid-cols-4 grid-rows-2 gap-3 md:gap-5 xl:gap-7">
-          <div className="group relative col-span-full row-span-full flex cursor-pointer flex-col items-center justify-between overflow-hidden rounded-md bg-gray-200 lg:col-span-2 lg:row-span-2">
-            <div
-              className="3xl:min-h-[330px] flex h-full items-center justify-center p-4"
-              title="Nike Bag"
-            >
-              <Image src={image1} alt="image1" />
-            </div>
-          </div>
-          <div className="group relative col-span-2 flex cursor-pointer flex-col items-center justify-between overflow-hidden rounded-md bg-gray-200 lg:col-span-1">
-            <Image src={image3} alt="image1" />
-          </div>
-          <div className="group relative col-span-2 flex cursor-pointer flex-col items-center justify-between overflow-hidden rounded-md bg-gray-200 lg:col-span-1 lg:row-span-2">
-            <div
-              className="3xl:min-h-[330px] flex h-full items-center justify-center p-4"
-              title="Nike Leader VT"
-            >
-              <Image src={image2} height={620} width={620} alt="image1" />
-            </div>
-          </div>
-          <div className="group relative col-span-2 flex cursor-pointer flex-col items-center justify-between overflow-hidden rounded-md bg-gray-200 lg:col-span-1">
-            <Image src={image4} alt="image1" />
-          </div>
-        </div>
-
-        <div className="mx-auto mb-12 pb-0.5 md:-mt-2.5 md:mb-14 md:pb-0 lg:pb-1 xl:mb-16 xl:pb-0">
-          <Image
-            src={banner10}
-            alt="banner10"
-            width={600}
-            height={400}
-            className="h-full w-full rounded-xl object-cover"
-          />
-        </div>
-
-        <div className="flex h-20 w-full items-center justify-center bg-gray-200">
-          <div className="flex items-center justify-center">
-            <p className="text-xs font-semibold text-gray-700">
-              © 2022 All rights reserved
-            </p>
-          </div>
-        </div>
-      </div> */}
+          ) : (
+            <ProductsList />
+          )}
+        </section>
+      </main>
+      <footer className="bg-muted px-6 py-6 text-center">
+        <p>&copy; 2024 CTEnvios. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

@@ -12,7 +12,7 @@ export default function ProductCard() {
             alt="Product image"
             width="400"
             height="500"
-            className="aspect-[4/5] w-full border object-cover"
+            className="aspect-[4/5] w-full  object-cover"
           />
         </div>
         <div className="grid gap-1.5">
