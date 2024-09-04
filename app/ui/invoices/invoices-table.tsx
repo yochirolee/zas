@@ -29,7 +29,7 @@ export default async function InvoicesTable2({
 }) {
   const invoices = await fetchFilteredInvoices(query, currentPage);
   return (
-    <Card className='mt-8'>
+    <Card className="mt-8">
       <CardHeader className="px-7">
         <CardTitle>Orders</CardTitle>
         <CardDescription>Recent orders from your store.</CardDescription>
@@ -46,8 +46,8 @@ export default async function InvoicesTable2({
             </TableRow>
           </TableHeader>
           <TableBody>
-            {invoices?.map((invoice) => (
-              <TableRow className="">
+            {invoices?.map((invoice, index) => (
+              <TableRow className="" key={index}>
                 <TableCell className="flex items-center ">
                   <Image
                     src={invoice.image_url}
