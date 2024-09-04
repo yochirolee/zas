@@ -1,3 +1,4 @@
+'use client';
 import { create } from 'zustand';
 
 type Product = {
@@ -6,7 +7,7 @@ type Product = {
   price: number;
   description: string;
   weight: number; // in pounds
-  source: 'own' | 'amazon' | 'walmart';
+  source: 'ctenvios' | 'amazon' | 'walmart';
   image: string;
 };
 

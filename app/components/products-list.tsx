@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -27,7 +26,7 @@ interface Product {
   price: number;
   description: string;
   weight: number; // in pounds
-  source: 'ctenvios' | 'amazon' | 'walmart' | 'own';
+  source: 'ctenvios' | 'amazon' | 'walmart';
   image: string;
   rating: number;
   category: string;
@@ -132,7 +131,6 @@ export default function ProductsList() {
   return (
     <div>
       <header className="mb-8 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Nuestros Productos</h1>
         <div className="flex items-center space-x-4">
           <Select
             value={filter}
@@ -142,7 +140,7 @@ export default function ProductsList() {
               <SelectValue placeholder="Filter by source" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Products</SelectItem>
+              <SelectItem value="all">Sold By</SelectItem>
               <SelectItem value="ctenvios">Our Products</SelectItem>
               <SelectItem value="amazon">Amazon Products</SelectItem>
               <SelectItem value="walmart">Walmart Products</SelectItem>
