@@ -11,63 +11,6 @@ type Product = {
   image: string;
 };
 
-const products: Product[] = [
-  {
-    id: 1,
-    name: 'Laptop',
-    price: 999.99,
-    description: 'High-performance laptop',
-    weight: 4.5,
-    source: 'own',
-    image: '/1.webp?height=200&width=200',
-  },
-  {
-    id: 2,
-    name: 'Smartphone',
-    price: 499.99,
-    description: 'Latest model smartphone',
-    weight: 0.5,
-    source: 'amazon',
-    image: '/2.webp?height=200&width=200',
-  },
-  {
-    id: 3,
-    name: 'Headphones',
-    price: 99.99,
-    description: 'Noise-cancelling headphones',
-    weight: 0.75,
-    source: 'walmart',
-    image: '/3.webp?height=200&width=200',
-  },
-  {
-    id: 4,
-    name: 'Tablet',
-    price: 299.99,
-    description: '10-inch tablet',
-    weight: 1.0,
-    source: 'own',
-    image: '/4.webp?height=200&width=200',
-  },
-  {
-    id: 5,
-    name: 'Smart Watch',
-    price: 199.99,
-    description: 'Fitness tracker watch',
-    weight: 0.25,
-    source: 'amazon',
-    image: '/slider3.jpg?height=200&width=200',
-  },
-  {
-    id: 6,
-    name: 'Camera',
-    price: 599.99,
-    description: 'Digital SLR camera',
-    weight: 1.5,
-    source: 'walmart',
-    image: '/slider4.jpg?height=200&width=200',
-  },
-];
-
 type ShippingMethod = 'air' | 'ship';
 
 type CartItem = Product & {
