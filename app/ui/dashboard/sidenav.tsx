@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import logo from '@/public/ctelogo.png';
+import logo from '@/public/logo.svg';
 import Image from 'next/image';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';

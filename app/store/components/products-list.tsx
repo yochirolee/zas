@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, Star } from 'lucide-react';
 
 import { useCartStore } from '@/app/hooks/useCartStore';
 import Image from 'next/image';
@@ -23,6 +23,7 @@ type Product = {
   weight: number; // in pounds
   source: 'ctenvios' | 'amazon' | 'walmart';
   image: string;
+  rating: number;
 };
 
 const products: Product[] = [
@@ -43,6 +44,7 @@ const products: Product[] = [
     weight: 0.5,
     source: 'amazon',
     image: '/2.webp?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 3,
@@ -52,6 +54,7 @@ const products: Product[] = [
     weight: 0.75,
     source: 'walmart',
     image: '/3.webp?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 4,
@@ -61,6 +64,7 @@ const products: Product[] = [
     weight: 1.0,
     source: 'ctenvios',
     image: '/4.webp?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 5,
@@ -70,6 +74,7 @@ const products: Product[] = [
     weight: 0.25,
     source: 'amazon',
     image: '/slider3.jpg?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 6,
@@ -79,6 +84,7 @@ const products: Product[] = [
     weight: 1.5,
     source: 'walmart',
     image: '/slider4.jpg?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 7,
@@ -88,6 +94,7 @@ const products: Product[] = [
     weight: 0.5,
     source: 'amazon',
     image: '/2.webp?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 8,
@@ -97,6 +104,7 @@ const products: Product[] = [
     weight: 0.75,
     source: 'walmart',
     image: '/3.webp?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 9,
@@ -106,6 +114,7 @@ const products: Product[] = [
     weight: 1.0,
     source: 'ctenvios',
     image: '/4.webp?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 10,
@@ -115,6 +124,7 @@ const products: Product[] = [
     weight: 1.0,
     source: 'ctenvios',
     image: '/4.webp?height=200&width=200',
+    rating: 4.5,
   },
   {
     id: 11,
@@ -124,6 +134,7 @@ const products: Product[] = [
     weight: 1.0,
     source: 'ctenvios',
     image: '/4.webp?height=200&width=200',
+    rating: 4.5,
   },
 ];
 
@@ -198,6 +209,18 @@ export default function ProductsList() {
                 <p className="text-xs text-muted-foreground">
                   {product.weight} lbs
                 </p>
+              </div>
+              <div className="mt-2 flex items-center">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`h-4 w-4 ${i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'}`}
+                    fill="currentColor"
+                  />
+                ))}
+                <span className="ml-2 text-sm text-gray-600">
+                  {product.rating}
+                </span>
               </div>
             </CardContent>
             <CardFooter className="p-4 pt-0">
