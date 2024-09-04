@@ -21,6 +21,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useCartStore } from '@/app/hooks/useCartStore';
 import { Card } from '@/components/ui/card';
+import Link from 'next/link';
 const shippingRates = {
   air: 2.5, // $2.5 per pound
   ship: 1.5, // $1.5 per pound
@@ -54,7 +55,7 @@ export default function Cart() {
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent className="overflow-y-auto w-full" style={{ maxWidth: '30vw' }}>
+      <SheetContent className="w-full overflow-y-auto md:max-w-fit">
         <SheetHeader>
           <SheetTitle>Shopping Cart</SheetTitle>
           <SheetDescription>
@@ -149,7 +150,9 @@ export default function Cart() {
           )}
         </div>
         <SheetFooter className="mt-6">
-          <Button disabled={cart.length === 0}>Checkout</Button>
+          <Button disabled={cart.length === 0}>
+            <Link href="/store/checkout">Checkout</Link>
+          </Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>
