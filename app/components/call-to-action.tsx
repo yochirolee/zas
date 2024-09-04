@@ -18,7 +18,7 @@ export default function CallToAction() {
             <Carousel className="mx-auto w-full max-w-lg">
               <CarouselContent>
                 <CarouselItem>
-                  <img
+                  <Image
                     src="/slider4.jpg"
                     width="500"
                     height="500"
@@ -28,7 +28,7 @@ export default function CallToAction() {
                 </CarouselItem>
 
                 <CarouselItem>
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     width="500"
                     height="500"
@@ -37,7 +37,7 @@ export default function CallToAction() {
                   />
                 </CarouselItem>
                 <CarouselItem>
-                  <img
+                  <Image
                     src="/placeholder.svg"
                     width="500"
                     height="500"

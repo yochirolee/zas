@@ -41,18 +41,8 @@ export default function Header() {
           </div>
           <div className=" flex items-center  space-x-2 md:hidden ">
             <div className="mx-2 inline-flex px-3">
-              <div className="relative   cursor-pointer p-2">
-                <Search className="h-6 w-6" />
-              </div>
-
-              <Link
-                prefetch={true}
-                href="/dashboard"
-                className="relative   cursor-pointer p-2"
-              >
-                <Settings className="h-6 w-6 " />
-              </Link>
-              <div className="ml-4 h-6 w-6">
+              <Cart />
+              <div className="ml-4 h-5 w-5">
                 <Avatar>
                   <AvatarImage
                     src="https://github.com/shadcn.png"
