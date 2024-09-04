@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Plus, Minus } from 'lucide-react';
+import { Plus, Minus, Star } from 'lucide-react';
 import { useCartStore } from '@/app/hooks/useCartStore';
 
 interface Product {
@@ -27,7 +27,7 @@ interface Product {
   price: number;
   description: string;
   weight: number; // in pounds
-  source: 'ctenvios' | 'amazon' | 'walmart';
+  source: 'ctenvios' | 'amazon' | 'walmart' | 'own';
   image: string;
   rating: number;
   category: string;
@@ -150,7 +150,7 @@ export default function ProductsList() {
           </Select>
         </div>
       </header>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {filteredProducts.map((product) => (
           <Card key={product.id} className="flex flex-col">
             <CardHeader className="p-4">
@@ -173,12 +173,28 @@ export default function ProductsList() {
                 {product.description}
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex-grow p-4 pt-0">
+            <CardContent className="flex-grow  p-4 pt-0">
               <div className="mb-2 flex items-center justify-between">
                 <p className="text-lg font-bold">${product.price.toFixed(2)}</p>
                 <p className="text-xs text-muted-foreground">
                   {product.weight} lbs
                 </p>
+              </div>{' '}
+              <div className="mt-2 flex items-center">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`h-4 w-4 ${
+                      i < Math.floor(product.rating)
+                        ? 'text-yellow-400'
+                        : 'text-gray-300'
+                    }`}
+                    fill="currentColor"
+                  />
+                ))}
+                <span className="ml-2 text-sm text-gray-600">
+                  {product.rating}
+                </span>
               </div>
             </CardContent>
             <CardFooter className="p-4 pt-0">

@@ -11,8 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import ProductCard from './components/product-card';
-import ProductsList from './components/products-list';
+import ProductsList from '@/app/components/products-list';
 
 // Mock product data
 const allProducts = [
