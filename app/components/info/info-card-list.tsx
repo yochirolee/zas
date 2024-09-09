@@ -24,7 +24,7 @@ const info = [
 
 export const InfoCardList = () => {
   return (
-    <div >
+    <div  >
       <p className="text-base font-semibold leading-7 text-sky-800">
         Principales Categorías
       </p>

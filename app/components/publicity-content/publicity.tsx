@@ -46,10 +46,10 @@ export const Publicity = () => {
               <p className="text-base font-semibold leading-7 text-sky-800">
                 Envíos Rápidos y Seguros
               </p>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h1 className="mt-2 text-xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-3xl">
                 CTEnvios a Cuba y el Caribe
               </h1>
-              <p className="mt-6 text-xl leading-8 text-gray-700">
+              <p className="mt-6 leading-8 text-gray-700 lg:text-xl">
                 Nos destacamos como líderes en el ámbito de envíos
                 internacionales a Cuba. Con un compromiso inquebrantable con la
                 excelencia y la satisfacción del cliente, hemos perfeccionado
@@ -70,7 +70,7 @@ export const Publicity = () => {
         </div>
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
-            <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+            <div className="max-w-xl text-sm leading-7 text-gray-700 md:text-base lg:max-w-lg">
               <p>
                 Nos enorgullece ofrecer envíos rápidos y seguros a Cuba desde
                 cualquier parte del mundo. Nuestra dedicación se refleja en

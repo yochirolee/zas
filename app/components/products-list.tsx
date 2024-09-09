@@ -130,7 +130,7 @@ export default function ProductsList() {
       : products.filter((product) => product.source === filter);
 
   return (
-    <div className=" p-4 ">
+    <div className=" lg:p-4 ">
       <p className="text-base font-semibold leading-7  text-sky-800">
         Compra Online
       </p>
@@ -158,7 +158,7 @@ export default function ProductsList() {
       <div className=" my-4 rounded-lg from-gray-50 to-gray-100">
         <ProductBanner />
       </div>
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {filteredProducts.map((product) => (
           <Card key={product.id} className="flex flex-col">
             <CardHeader className="p-4">

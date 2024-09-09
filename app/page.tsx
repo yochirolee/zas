@@ -15,11 +15,11 @@ export default function Page() {
     <div className=" mx-auto w-full  ">
       <Header />
       <CallToAction />
-      <div className="  container mx-auto flex flex-col space-y-16 py-12 ">
+      <div className=" px-2 md:container m-0 flex flex-col space-y-16 py-12 md:mx-auto ">
         <InfoCardList />
         <ProductsList />
         <Publicity />
-       
+
         <SocialMedia />
         <Stats />
         <Faq />
