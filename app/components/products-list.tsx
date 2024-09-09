@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/select';
 import { Plus, Minus, Star } from 'lucide-react';
 import { useCartStore } from '@/app/hooks/useCartStore';
+import ProductBanner from './banner/banner';
 
 interface Product {
   id: number;
@@ -129,8 +130,8 @@ export default function ProductsList() {
       : products.filter((product) => product.source === filter);
 
   return (
-    <div>
-      <p className="text-base font-semibold leading-7 text-sky-800">
+    <div className=" p-4 ">
+      <p className="text-base font-semibold leading-7  text-sky-800">
         Compra Online
       </p>
       <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -154,7 +155,10 @@ export default function ProductsList() {
           </Select>
         </div>
       </header> */}
-      <div className="grid grid-cols-1 mt-10 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className=" my-4 rounded-lg from-gray-50 to-gray-100">
+        <ProductBanner />
+      </div>
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {filteredProducts.map((product) => (
           <Card key={product.id} className="flex flex-col">
             <CardHeader className="p-4">

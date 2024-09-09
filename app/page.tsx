@@ -8,6 +8,7 @@ import { SocialMedia } from './components/social-media/social-media';
 import { Stats } from './components/stats/stats';
 import { Publicity } from './components/publicity-content/publicity';
 import Footer from './components/footer/footer';
+import ProductBanner from './components/banner/banner';
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
         <InfoCardList />
         <ProductsList />
         <Publicity />
+       
         <SocialMedia />
         <Stats />
         <Faq />
