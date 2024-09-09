@@ -130,7 +130,13 @@ export default function ProductsList() {
 
   return (
     <div>
-      <header className="mb-8 flex items-center justify-between">
+      <p className="text-base font-semibold leading-7 text-sky-800">
+        Compra Online
+      </p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Tu solo compra, nosotros nos encargamos del resto
+      </h1>
+      {/*   <header className="mb-8 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Select
             value={filter}
@@ -147,8 +153,8 @@ export default function ProductsList() {
             </SelectContent>
           </Select>
         </div>
-      </header>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      </header> */}
+      <div className="grid grid-cols-1 mt-10 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {filteredProducts.map((product) => (
           <Card key={product.id} className="flex flex-col">
             <CardHeader className="p-4">

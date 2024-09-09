@@ -24,9 +24,14 @@ const info = [
 
 export const InfoCardList = () => {
   return (
-    <div>
-      <h1 className="text-2xl font-bold">Principales Categorías</h1>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div >
+      <p className="text-base font-semibold leading-7 text-sky-800">
+        Principales Categorías
+      </p>
+      <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Envios de Miscelaneas, Medicinas y Duraderos
+      </h1>
+      <div className="mx-auto grid grid-cols-1 gap-8 py-10 sm:grid-cols-1 md:grid-cols-2  lg:max-w-7xl lg:grid-cols-3">
         {info.map((item) => (
           <InfoCard
             key={item.title}

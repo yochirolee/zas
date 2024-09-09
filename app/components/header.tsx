@@ -42,7 +42,7 @@ export default function Header() {
           <div className=" flex items-center  space-x-2 md:hidden ">
             <div className="mx-2 inline-flex px-3">
               <Cart />
-              <div className="ml-4 h-5 w-5">
+              <div className="w- ml-4 h-5">
                 <Avatar>
                   <AvatarImage
                     src="https://github.com/shadcn.png"
