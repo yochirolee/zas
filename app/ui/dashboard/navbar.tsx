@@ -1,10 +1,9 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Search, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
-import avatar from '@/public/avatar.png';
-import logo from '@/public/zaslogo.png';
+import logo from '@/public/ctelogo.webp';
 import Link from 'next/link';
 
 export default function Header() {
@@ -14,7 +13,7 @@ export default function Header() {
         <div className="mx-auto flex h-full max-w-[1920px]  items-center justify-between">
           <Image
             src={logo}
-            alt="Zas Logo"
+            alt="CTEnvios Logo"
             width={80}
             height={80}
             className="lg:h-26 lg:w-26"
