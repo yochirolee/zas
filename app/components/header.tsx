@@ -4,7 +4,6 @@ import { Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Cart from './cart';
-import logo from '@/public/ctelogo.webp';
 
 export default function Header() {
   return (
@@ -13,7 +12,7 @@ export default function Header() {
         <div className="mx-auto flex h-full max-w-[1920px]  items-center justify-between">
           <Link href="/">
             <Image
-              src={logo}
+              src="/logo.svg"
               alt="CTENvios Logo"
               width={40}
               height={40}
