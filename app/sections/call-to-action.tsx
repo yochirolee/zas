@@ -111,7 +111,7 @@ export default function CallToAction() {
             <CarouselContent>
               <CarouselItem>
                 <Image
-                  src="/slider4.jpg"
+                  src="/slider4.jpg?height=500&width=500"
                   width="500"
                   height="500"
                   alt="Product Image"
