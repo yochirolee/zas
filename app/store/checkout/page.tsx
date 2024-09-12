@@ -23,7 +23,6 @@ import { Separator } from '@/components/ui/separator';
 import { CreditCard, DollarSign, Wallet } from 'lucide-react';
 import OrderDetails from './components/order_details';
 
-
 export default function Component() {
   const [step, setStep] = useState(1);
 
@@ -32,7 +31,6 @@ export default function Component() {
 
   return (
     <div className="container mx-auto flex flex-col gap-8 p-4 lg:flex-row">
-      
       <div className="lg:w-2/3">
         <Card>
           <CardHeader>
@@ -41,14 +39,14 @@ export default function Component() {
           <CardContent>
             <div className="mb-6 flex  gap-2 text-sm">
               <span
-                className={` ${step >= 1 ? 'text-primary font-semibold' : 'text-muted-foreground'}`}
+                className={` ${step >= 1 ? 'font-semibold text-primary' : 'text-muted-foreground'}`}
               >
                 Customer Information
               </span>
-              <div>></div>
-            
+              <div>&gt;</div>
+
               <span
-                className={` ${step >= 2 ? 'text-primary font-semibold' : 'text-muted-foreground'}`}
+                className={` ${step >= 2 ? 'font-semibold text-primary' : 'text-muted-foreground'}`}
               >
                 Payment
               </span>
@@ -103,8 +101,6 @@ export default function Component() {
                 </div>
               </div>
             )}
-
-           
 
             {step === 2 && (
               <div className="space-y-4">
@@ -169,7 +165,6 @@ export default function Component() {
                       </div>
                     </div>
                   </CardContent>
-                  
                 </Card>
               </div>
             )}
@@ -190,7 +185,7 @@ export default function Component() {
         </Card>
       </div>
       <div className="lg:w-1/3">
-        <OrderDetails/>
+        <OrderDetails />
       </div>
     </div>
   );
