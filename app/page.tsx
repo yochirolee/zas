@@ -1,13 +1,16 @@
+import { lazy } from 'react';
+
 import CallToAction from './sections/call-to-action';
-import { Faq } from './sections/faq';
 import { InfoCardList } from './sections/info-card-list';
 import Header from './components/header';
-import { SocialMedia } from './sections/social-media';
-import { Stats } from './sections/stats';
 import Footer from './components/footer/footer';
 import TrackingSection from './sections/tracking-section';
 import ProductsList from './sections/products-list';
-import { Publicity } from './sections/publicity';
+//lazy load all sections
+const Publicity = lazy(() => import('./sections/publicity'));
+const SocialMedia = lazy(() => import('./sections/social-media'));
+const Stats = lazy(() => import('./sections/stats'));
+const Faq = lazy(() => import('./sections/faq'));
 
 export default function Page() {
   return (

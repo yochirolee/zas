@@ -4,7 +4,7 @@ const stats = [
   { id: 3, name: 'Clientes nuevos en el 2023', value: '+2,000' },
 ];
 
-export const Stats = () => {
+export default function Stats() {
   return (
     <div className="bg-white  py-10 sm:py-32">
       <div className="mx-auto  max-w-7xl px-6 lg:px-8">
@@ -26,4 +26,4 @@ export const Stats = () => {
       </div>
     </div>
   );
-};
+}

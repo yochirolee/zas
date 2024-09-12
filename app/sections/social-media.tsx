@@ -14,7 +14,7 @@ export const ShadowBg1 = () => {
     </div>
   );
 };
-export const SocialMedia = () => {
+export default function SocialMedia() {
   return (
     <div className="relative mx-auto  max-w-7xl rounded-lg bg-gray-50 p-10 px-6 lg:px-8 ">
       <div className="lg:col-span-4 ">
@@ -73,4 +73,4 @@ export const SocialMedia = () => {
       </div>
     </div>
   );
-};
+}

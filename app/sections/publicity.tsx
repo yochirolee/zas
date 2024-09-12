@@ -5,7 +5,7 @@ import {
 } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 
-export const Publicity = () => {
+export default function Publicity() {
   return (
     <div className="relative isolate overflow-hidden bg-white lg:overflow-visible lg:px-0">
       <div className="absolute inset-0 -z-10 overflow-hidden">

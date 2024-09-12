@@ -19,7 +19,6 @@ import {
 } from '@/components/ui/select';
 import { Plus, Minus, Star } from 'lucide-react';
 import { useCartStore } from '@/app/hooks/useCartStore';
-import ProductBanner from './banner/banner';
 
 interface Product {
   id: number;

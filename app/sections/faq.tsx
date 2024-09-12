@@ -6,9 +6,9 @@ import {
 } from '@/components/ui/accordion';
 import { Info, MapPin } from 'lucide-react';
 
-export function Faq() {
+export default function Faq() {
   return (
-    <div className="mx-auto grid items-left lg:gap-6 pb-24 lg:max-w-7xl lg:grid-cols-12">
+    <div className="items-left mx-auto grid pb-24 lg:max-w-7xl lg:grid-cols-12 lg:gap-6">
       <div className="lg:col-span-4 ">
         <h2 className="text-base font-semibold leading-7 text-sky-800">
           Preguntas Frecuentes
