@@ -1,25 +1,25 @@
-import CallToAction from './components/call-to-action';
-
-import ProductsList from './components/products-list';
-import { Faq } from './components/info/faq';
-import { InfoCardList } from './components/info/info-card-list';
+import CallToAction from './sections/call-to-action';
+import { Faq } from './sections/faq';
+import { InfoCardList } from './sections/info-card-list';
 import Header from './components/header';
-import { SocialMedia } from './components/social-media/social-media';
-import { Stats } from './components/stats/stats';
-import { Publicity } from './components/publicity-content/publicity';
+import { SocialMedia } from './sections/social-media';
+import { Stats } from './sections/stats';
 import Footer from './components/footer/footer';
-import ProductBanner from './components/banner/banner';
+import TrackingSection from './sections/tracking-section';
+import ProductsList from './sections/products-list';
+import { Publicity } from './sections/publicity';
 
 export default function Page() {
   return (
     <div className=" mx-auto w-full  ">
       <Header />
       <CallToAction />
-      <div className=" px-2 md:container m-0 flex flex-col space-y-16 py-12 md:mx-auto ">
+
+      <div className=" m-0 flex flex-col space-y-16 px-2 py-12 md:container md:mx-auto ">
         <InfoCardList />
         <ProductsList />
+        <TrackingSection />
         <Publicity />
-
         <SocialMedia />
         <Stats />
         <Faq />

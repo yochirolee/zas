@@ -155,9 +155,7 @@ export default function ProductsList() {
           </Select>
         </div>
       </header> */}
-      <div className=" my-4 rounded-lg from-gray-50 to-gray-100">
-        <ProductBanner />
-      </div>
+
       <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {filteredProducts.map((product) => (
           <Card key={product.id} className="flex flex-col">

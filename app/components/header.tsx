@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Search } from 'lucide-react';
+import { Search, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Cart from './cart';
@@ -20,6 +20,7 @@ export default function Header() {
             />
           </Link>
 
+          {/* Destktop */}
           <div className=" hidden items-center space-x-2 md:flex ">
             <div className=" flex items-center ">
               <div className="relative   cursor-pointer p-2">
@@ -39,9 +40,11 @@ export default function Header() {
               </Link>
             </Button>
           </div>
+          {/* Mobile */}
           <div className=" flex items-center  space-x-2 md:hidden ">
             <div className="mx-2 inline-flex px-3">
               <Cart />
+
               <div className="w- ml-4 h-5">
                 <Avatar>
                   <AvatarImage

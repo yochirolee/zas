@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import {
   Carousel,
@@ -11,7 +10,6 @@ import Image from 'next/image';
 import { MapPinIcon } from 'lucide-react';
 import { MdOutlineWhatsapp } from 'react-icons/md';
 import { Button } from '@/components/ui/button';
-import ShipBanner from './banner/ship-banner';
 
 export const ShadowBg1 = () => {
   return (
@@ -122,7 +120,9 @@ export default function CallToAction() {
               </CarouselItem>
 
               <CarouselItem className="">
-                <ShipBanner />
+                <Button className="">
+                  <span>Show More</span>
+                </Button>
               </CarouselItem>
               <CarouselItem>
                 <Image

@@ -16,6 +16,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SheetFooter,
+  SheetClose,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -150,9 +151,11 @@ export default function Cart() {
           )}
         </div>
         <SheetFooter className="mt-6">
-          <Button disabled={cart.length === 0}>
-            <Link href="/store/checkout">Checkout</Link>
-          </Button>
+          <SheetClose asChild>
+            <Button disabled={cart.length === 0}>
+              <Link href="/store/checkout">Checkout</Link>
+            </Button>
+          </SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>
