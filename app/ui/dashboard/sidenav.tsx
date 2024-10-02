@@ -2,57 +2,59 @@
 import Link from 'next/link';
 import logo from '@/public/logo.svg';
 import Image from 'next/image';
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { links } from '@/app/lib/nav-links';
+import { Button } from '@/components/ui/button';
+import {
+  HomeIcon,
+  ShoppingCart,
+  Package,
+  Users,
+  CreditCard,
+  TrendingUp,
+} from 'lucide-react';
+import { useState } from 'react';
+import { Badge } from '@/components/ui/badge';
 
 export default function SideNav() {
   const pathname = usePathname();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('overview');
   return (
-    <div className="flex h-full max-h-screen flex-col gap-2">
-      <div className="flex h-14 items-center justify-left border-b px-4 lg:h-[60px] lg:px-2">
-        <Link href="/dashboard" className=" flex gap-2 font-semibold">
-          <Image
-            src={logo}
-            width={50}
-            height={50}
-            alt="logo"
-            className="h-12 w-12 "
-          />
-        </Link>
-      </div>
-      <div className="min-h-40 bg-gray-100">
-        <div className="flex h-20 items-center justify-center">
-          <Avatar>
-            <AvatarImage src="https://randomuser.me/api/portraits " />
+    <aside
+      className={`min-h-screen w-64 border-r border-gray-100  ${sidebarOpen ? 'block' : 'hidden'} md:block`}
+    >
+      <div className="flex flex-col space-y-2">
+        <div className="flex min-h-48 flex-col items-center justify-center space-x-2  bg-gradient-to-b    from-gray-100 to-gray-50">
+          <Avatar className="h-20 w-20 space-x-2">
+            <AvatarImage src={logo} alt="logo" />
+            <AvatarFallback>CT</AvatarFallback>
           </Avatar>
+          <div className=" font-bold">yleecruz@gmail.com</div>
+          <Badge variant="outline">Admin</Badge>
         </div>
       </div>
-
-      <div className="flex-1 border-r">
-        <nav className="grid gap-2 px-2 text-lg font-medium text-gray-900">
-          {links.map((link) => {
-            const LinkIcon = link.icon;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
+      <nav className="mt-4 flex flex-col space-y-2 p-2">
+        {links.map((link) => {
+          return (
+            <Link href={link.href} key={link.name}>
+              <Button
+                variant="ghost"
                 className={clsx(
-                  ' mx-3 flex items-center gap-4 rounded-xl px-3 py-2 text-gray-900 text-muted-foreground hover:text-foreground',
-                  {
-                    'bg-gray-100 text-gray-900': pathname === link.href,
-                  },
+                  'w-full justify-start',
+                  pathname === link.href && 'bg-gray-100 text-primary',
                 )}
+                onClick={() => setActiveSection(link.name)}
               >
-                <LinkIcon className="h-5 w-5" />
-
+                <link.icon className="mr-2 h-4 w-4" />
                 {link.name}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
-    </div>
+              </Button>
+            </Link>
+          );
+        })}
+      </nav>
+    </aside>
   );
 }

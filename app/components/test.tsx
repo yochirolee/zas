@@ -182,7 +182,7 @@ export default function CallToActionSection() {
   }, []);
 
   return (
-    <section id="cta" className="mx-auto max-w-xl bg-gray-300">
+    <section id="cta" className="mx-auto max-w-xl rounded-xl backdrop-blur-sm bg-[url('/map.jpg')]">
       <div className="py-14">
         <div className="flex w-full flex-col items-center justify-center">
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">

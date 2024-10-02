@@ -2,7 +2,7 @@ import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 //metadata friendly seo
 import { Metadata } from 'next';
-
+//how to build a site map in next js
 export const metadata: Metadata = {
   title: {
     default: 'CTenvios - International Shipping to Cuba',
@@ -92,7 +92,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full ">
-      <title>CTenvios - International Shipping to Cuba</title>
+      <title>CTEnvios - International Shipping to Cuba</title>
       <body className={`${inter.className}  antialiased`}>{children}</body>
     </html>
   );

@@ -5,14 +5,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Cart from './cart';
 
+const navigation = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Tracking', href: '/tracking' },
+  { name: 'Preguntas Frecuentes', href: '/#faq' },
+];
+
 export default function Header() {
   return (
-    <header id="store-header" className="relative z-40 h-16 w-full    lg:h-16">
-      <div className=" body-font fixed z-20 h-16 w-full   bg-white px-4 text-gray-700 shadow-sm transition duration-200 ease-in-out sm:h-16 lg:h-16 ">
-        <div className="mx-auto flex h-full max-w-[1920px]  items-center justify-between">
+    <header id="store-header">
+      <div className=" body-font  h-16  px-4 text-gray-700  transition duration-200 ease-in-out sm:h-16 lg:h-16 ">
+        <div className="mx-auto flex h-full   items-center justify-between">
           <Link href="/">
             <Image
-              src="/logo.svg"
+              src="/ctelogo.png"
               alt="CTENvios Logo"
               width={40}
               height={40}
@@ -21,8 +27,19 @@ export default function Header() {
           </Link>
 
           {/* Destktop */}
-          <div className=" hidden items-center space-x-2 md:flex ">
-            <div className=" flex items-center ">
+          <div className=" hidden w-full items-center justify-between space-x-2 md:flex ">
+            <div className="mx-auto hidden lg:flex lg:gap-x-12">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center">
               <div className="relative   cursor-pointer p-2">
                 <Search className="h-6 w-6" />
               </div>
@@ -32,13 +49,13 @@ export default function Header() {
               <Link href="/auth/signin">
                 <Button variant="ghost">Sign In</Button>
               </Link>
-            </div>
 
-            <Button>
-              <Link prefetch={true} href="/dashboard">
-                Dashboard
-              </Link>
-            </Button>
+              {/*   <Button>
+                <Link prefetch={true} href="/dashboard">
+                  Dashboard
+                </Link>
+              </Button> */}
+            </div>
           </div>
           {/* Mobile */}
           <div className=" flex items-center  space-x-2 md:hidden ">

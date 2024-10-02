@@ -154,7 +154,7 @@ export default function Component() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="mb-10 flex min-h-screen flex-col">
       <main className="flex flex-1">
         <aside className="hidden w-64 bg-muted p-6 md:block">
           <h2 className="mb-4 font-semibold">Categories</h2>
@@ -178,16 +178,13 @@ export default function Component() {
           </h2>
           {isLoading ? (
             <div className="flex h-64 items-center justify-center">
-              <div className="h-32 w-32 animate-spin rounded-full border-b-2 border-primary"></div>
+              <div className="mx-auto h-32 w-32 animate-spin rounded-full border-b-2 border-primary"></div>
             </div>
           ) : (
             <ProductsList />
           )}
         </section>
       </main>
-      <footer className="bg-muted px-6 py-6 text-center">
-        <p>&copy; 2024 CTEnvios. All rights reserved.</p>
-      </footer>
     </div>
   );
 }
