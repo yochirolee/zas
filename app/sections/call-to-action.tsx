@@ -1,4 +1,3 @@
-
 import { HeroLeft } from './hero-left';
 import { HeroRight } from './hero-right';
 
@@ -64,7 +63,6 @@ export default function CallToAction() {
   return (
     <section className="  md:py-24 lg:py-32">
       <ShadowBg1 />
-
       <div className="grid items-center gap-28 py-20 lg:container lg:max-w-7xl  lg:grid-flow-col     lg:grid-cols-2 ">
         {/* <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
@@ -98,8 +96,7 @@ export default function CallToAction() {
           </svg>
         </div> */}
         <HeroLeft />
-          <HeroRight />
-        
+        <HeroRight />
       </div>
 
       <ShadowBg2 />
