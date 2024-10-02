@@ -17,7 +17,7 @@ const Faq = lazy(() => import('./sections/faq'));
 export default function Page() {
   return (
     <div>
-      <div className="container">
+      <div className="md:container">
         <Header />
         <div className="relative m-0 mx-auto flex flex-col space-y-10 px-2  md:container md:mx-auto ">
           <CallToAction />
