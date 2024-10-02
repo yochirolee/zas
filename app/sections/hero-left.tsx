@@ -1,7 +1,7 @@
-import { MapPinIcon } from '@heroicons/react/24/outline';
+import React from 'react';
 import Link from 'next/link';
-import { React } from 'react';
 import { MdOutlineWhatsapp } from 'react-icons/md';
+import { MapPinIcon } from 'lucide-react';
 export const HeroLeft = () => {
   return (
     <div className=" mx-auto  px-4 text-center  ">
