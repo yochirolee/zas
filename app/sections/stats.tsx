@@ -24,16 +24,16 @@ export default function Stats() {
           {stats.map((stat) => (
             <div
               key={stat.id}
-              className=" items-center mx-auto flex max-w-xs flex-col gap-y-4 "
+              className=" mx-auto flex max-w-xs flex-col items-center gap-y-4 "
             >
-              <div className="text-2xl leading-5 font-bold text-gray-700">
+              <div className="text-2xl font-bold leading-5 text-gray-700">
                 {stat.description}
               </div>
               <div className="text-base leading-7 text-gray-600">
                 {stat.name}
               </div>
               <div className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                <NumberTicker value={stat.value} />
+                +<NumberTicker value={stat.value} />
               </div>
             </div>
           ))}

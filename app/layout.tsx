@@ -5,11 +5,11 @@ import { Metadata } from 'next';
 //how to build a site map in next js
 export const metadata: Metadata = {
   title: {
-    default: 'CTenvios - International Shipping to Cuba',
+    default: 'CTEnvios - International Shipping to Cuba',
     template: '%s | CTenvios',
   },
   description:
-    'CTenvios, envios internacionales a Cuba con mas de 20 años de experiencia, agencia de envios a Cuba.',
+    'CTEnvios, envios internacionales a Cuba con mas de 20 años de experiencia, agencia de envios a Cuba.',
   keywords: [
     'shipping',
     'Cuba',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     'paqueteria a cuba',
     'agencia de envios a cuba en hialeah',
   ],
-  authors: [{ name: 'CTenvios' }],
+  authors: [{ name: 'CTEnvios' }],
   creator: 'yleecruz@gmail.com',
   publisher: 'yleecruz@gmail.com',
   formatDetection: {

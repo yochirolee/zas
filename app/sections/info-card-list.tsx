@@ -1,14 +1,8 @@
 import { TruckIcon } from 'lucide-react';
 import { InfoCard } from '../components/info/info-card';
+import AnimatedPriceCard from '../components/animations/animated-price-card';
 
 const info = [
-  {
-    id: 1,
-    title: 'Envío Gratis',
-    description: 'Envío Gratis para compras mayores a $50',
-    icon: <TruckIcon className="h-8 w-8 text-[#0EA5E9]" />,
-    type: 'Miscelaneas',
-  },
   {
     id: 2,
     title: 'Envío Gratis',
@@ -35,6 +29,7 @@ export const InfoCardList = () => {
         Envios de Miscelaneas, Medicinas y Duraderos
       </h1>
       <div className="mx-auto grid grid-cols-1 gap-8 py-10 sm:grid-cols-1 md:grid-cols-2  lg:max-w-7xl lg:grid-cols-3">
+        <AnimatedPriceCard />
         {info.map((item) => (
           <InfoCard
             key={item.id}

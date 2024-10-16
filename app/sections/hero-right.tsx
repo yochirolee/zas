@@ -2,21 +2,14 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BorderBeam } from '@/components/ui/border-beam';
+import Prices from './prices';
 
 export const HeroRight = () => {
   return (
     <div className=" relative mx-auto w-full rounded-lg  px-4 sm:px-6 lg:px-8">
-      <BorderBeam
-        size={250}
-        duration={12}
-        delay={9}
-        colorFrom="#ec4899"
-        colorTo="#6fa8dc"
-      />
       <div className="absolute inset-0 bg-[url(/grid.svg)] bg-center p-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
 
-      <div className="lg:py-42 h-92 mx-auto max-w-2xl sm:py-10 lg:max-w-none ">
-        <div className="grid grid-cols-2 items-center justify-center lg:grid-cols-3  lg:gap-x-6 lg:space-y-0">
+      {/*   <div className="grid grid-cols-2 items-center justify-center lg:grid-cols-3  lg:gap-x-6 lg:space-y-0">
           <motion.div
             animate={{ x: [0, 100, 0] }}
             style={{ x: 0, rotate: -25 }}
@@ -56,9 +49,16 @@ export const HeroRight = () => {
               alt="Familia Cubana, Envios"
             />
           </motion.div>
-        </div>
-      </div>
-      <div className="pt-2">
+        </div> */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Prices />
+      </motion.div>
+
+      {/*   <div className="pt-2">
         <p className="my-8 text-center  text-lg font-semibold">
           Hasta la Puerta de su Casa!
         </p>
@@ -77,7 +77,7 @@ export const HeroRight = () => {
             </span>
           </a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

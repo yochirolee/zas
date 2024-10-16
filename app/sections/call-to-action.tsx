@@ -61,9 +61,9 @@ export const ShadowBg2 = () => {
 
 export default function CallToAction() {
   return (
-    <section className="  md:py-24 lg:py-32">
+    <section className="  md:py-12 lg:py-20">
       <ShadowBg1 />
-      <div className="grid items-center gap-28 py-20 lg:container lg:max-w-7xl  lg:grid-flow-col     lg:grid-cols-2 ">
+      <div className="grid items-center gap-28 py-10 lg:container lg:max-w-7xl  lg:grid-flow-col     lg:grid-cols-2 ">
         {/* <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
             className="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"

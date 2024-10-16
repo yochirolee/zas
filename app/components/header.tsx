@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Search, ShoppingBag } from 'lucide-react';
+import { Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Cart from './cart';
@@ -20,9 +20,13 @@ export default function Header() {
             <Image
               src="/ctelogo.png"
               alt="CTENvios Logo"
-              width={40}
-              height={40}
-              className="object-scale-down lg:h-12 lg:w-12"
+              width={400}
+              height={400}
+              className="h-12 w-12 object-scale-down object-center"
+              priority
+              quality={100}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
             />
           </Link>
 

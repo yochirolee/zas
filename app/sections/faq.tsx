@@ -8,7 +8,7 @@ import { Info, MapPin } from 'lucide-react';
 
 export default function Faq() {
   return (
-    <div className="items-left mx-auto grid pb-24 lg:max-w-7xl lg:grid-cols-12 lg:gap-6">
+    <div className="items-left grid py-24 lg:mx-auto lg:max-w-7xl lg:grid-cols-12 lg:gap-6">
       <div className="lg:col-span-4 ">
         <h2 className="text-base font-semibold leading-7 text-sky-800">
           Preguntas Frecuentes
