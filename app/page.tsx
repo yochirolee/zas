@@ -8,6 +8,7 @@ import AnimatedCardAndDetails from './sections/animated-card-and-details';
 import Agencies from './sections/agencies';
 import Prices from './sections/prices';
 import Stats from './sections/stats';
+import { RippleDemo } from './components/animations/animated-riple';
 
 //lazy load all sections
 const Publicity = lazy(() => import('./sections/publicity'));
@@ -22,13 +23,13 @@ export default function Page() {
         <Header />
         <div className="relative m-0 mx-auto flex flex-col space-y-10 px-2  md:container md:mx-auto ">
           <CallToAction />
-          <Stats />
           <TrackingSection />
-        {/*   <InfoCardList />
+          <RippleDemo />
+          {/*   <InfoCardList />
            */}
           <Agencies />
-         {/*  <AnimatedCardAndDetails />
- */}
+          {/*  <AnimatedCardAndDetails />
+           */}
           <SocialMedia />
           <Publicity />
           <Faq />
